@@ -19,7 +19,7 @@ public class CategoryController {
 	
 	
 	 @GetMapping("/categories/{id}")
-	 public Category getById(@PathVariable Long id) {
+	 public Category getCategoryById(@PathVariable Long id) {
 		return null;}
 	 
 	 @PostMapping("/categories")
