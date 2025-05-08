@@ -1,6 +1,7 @@
 package com.dauphine.blogger_box_backend.controllers;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -22,19 +23,20 @@ public class CategoryController {
 	
 	
 	 @GetMapping("/categories/{id}")
-	 public Category getById(@PathVariable Long id) {
-		return null;}
+	 public Category getById(@PathVariable UUID id) {
+		return service.getById(id);}
 	 
 	 @PostMapping("/categories")
-	 public Category createCategory(){
-		 return null;
+	 public Category createCategory(@RequestBody String name){
+		 return service.create(name);
 	 }
 	 @PutMapping("/categories/{id}")
-	    public Category updateCategoryName() {
-		 return null;
+	    public Category updateCategoryName(@PathVariable UUID id,String name) {
+		 return service.updateName(id, name);
 	 }
 	 @DeleteMapping("/categories/{id}")
-	    public void deleteCategory(@PathVariable Long id) {
+	    public void deleteCategory(@PathVariable UUID id) {
+		 service.deleteById(id);
 		 
 	 }
 }
