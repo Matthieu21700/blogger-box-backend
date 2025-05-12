@@ -23,7 +23,7 @@ public class PostServiceImpl implements PostService {
 	}
 	@Override
 	public List<Post> getAll() {
-		return this.repository.findAll();
+		return this.repository.findAllByOrderByCreatedDateDesc();
 	}
 	@Override
 	public Post getById(UUID id) {
@@ -33,6 +33,7 @@ public class PostServiceImpl implements PostService {
 	public Post create(String title, String content, UUID categoryId) {
 		Category cat =catRepo.getById(categoryId);
 		Post post = new Post (title, content,cat);
+		System.out.println("Reçu : " + title + ", " + content + ", " + categoryId);
 		return repository.save(post);
 	}
 	@Override

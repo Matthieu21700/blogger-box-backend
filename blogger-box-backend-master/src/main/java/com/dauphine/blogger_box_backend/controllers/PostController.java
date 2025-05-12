@@ -19,8 +19,8 @@ public class PostController {
         this.service = service;
     }
 	@PostMapping("/posts")
-    public Post createPost(@RequestBody Post post) {
-        return service.create(post.getTitle(), post.getContent(), post.getCategory().getId());
+    public Post createPost(@RequestBody PostRequest post) {
+        return service.create(post.title, post.content, post.categoryId);
     }
 
     // Mettre à jour un post existant
@@ -36,7 +36,7 @@ public class PostController {
     }
 
     @GetMapping("/posts")
-    public List<Post> getAllPostsOrderedByCreationDate() {
+    public List<Post> getAllPostsOrderedByCreatedDate() {
        return service.getAll();
     }
 

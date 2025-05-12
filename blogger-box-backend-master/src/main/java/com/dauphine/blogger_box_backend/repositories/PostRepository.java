@@ -8,5 +8,5 @@ import com.dauphine.blogger_box_backend.model.Post;
 
 public interface PostRepository extends JpaRepository< Post,UUID> {
     List<Post> findByCategory_id(UUID category_id);
-
+    List<Post> findAllByOrderByCreatedDateDesc();
 }
